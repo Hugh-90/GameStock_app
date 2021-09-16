@@ -67,7 +67,6 @@ const data = {
             image:"/images/p3.jpg",
             price:60,
             countInStock:90,
-            countInStock:60,
             brand:"PS4",
             rating:5,
             numReviews:10,
