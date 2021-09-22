@@ -1,5 +1,5 @@
 import express from "express";
-import  mongoose from "mongoose";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
