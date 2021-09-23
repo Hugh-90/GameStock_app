@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import bcrypt from 'bcryptjs';
 
 const data = {
     users: [
@@ -93,8 +93,8 @@ const data = {
             rating:5,
             numReviews:10,
             description: "Return to Arkham and experience two of the most critically acclaimed titles of the last generation - Batman: Arkham Asylum and Batman: Arkham City, with fully remastered and updated visuals. Batman: Return to Arkham includes the comprehensive versions of both games and includes all previously released additional content. Batman: Arkham Asylum exposes players to a dark and atmospheric adventure that takes them into the depths of Arkham Asylum -Gotham City's high security psychiatric hospital for the criminally insane. Use Batman's legendary gadgetry, strike from the shadows, and confront The Joker and Gotham City's most notorious super villains. Batman: Arkham City sends players soaring into Arkham City - a heavily fortified sprawling district in the heart of Gotham City. Batman Arkham City introduces a brand-new story that draws together an all-star cast of classic characters and murderous villains from the Batman universe."
-        }
-    ]
+        },
+    ],
 };
 
 export default data;
