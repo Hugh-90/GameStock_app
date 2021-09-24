@@ -5,12 +5,12 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 
 dotenv.config();
-const mongoose = require("mongoose");
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/gamestock', {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/[gamestock]', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
