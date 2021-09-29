@@ -146,6 +146,7 @@ img.medium {
   width: 100%;
 }
 img.large {
+  max-width: 60rem;
   width: 100%;
 }
 
