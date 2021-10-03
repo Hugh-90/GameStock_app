@@ -39,7 +39,7 @@ export default function ProductEditScreen(props) {
             setBrand(product.brand);
             setDescription(product.description);
         }
-    }, [product, dispatch, productId]);
+    }, [props.history, successUpdate, product, dispatch, productId]);
 
     const submitHandler = (e) => {
         e.preventDefault();
