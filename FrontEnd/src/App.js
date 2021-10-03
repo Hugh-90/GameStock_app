@@ -55,6 +55,7 @@ function App() {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
+            <i className="fa fa-shopping-cart"></i>
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
