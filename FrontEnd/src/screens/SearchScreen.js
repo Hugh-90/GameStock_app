@@ -19,7 +19,7 @@ export default function SearchScreen(props) {
   useEffect(() => {
     dispatch(listProducts({ name: name !== 'all' ? name : '',
     category: category !== "all" ? category : "",
-    min, max 
+    min, max, rating, order,
     })
   );
   }, [dispatch,category, min, max, name, order, rating]);
