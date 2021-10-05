@@ -69,7 +69,7 @@ export default function ProductEditScreen(props) {
         const {data} = await Axios.post("/api/uploads", bodyFormData, {
             headers: {
                 "Content-Type" : "multipart/form-data",
-            Authorization : `Bearer ${userInfo.token}`,
+                Authorization : `Bearer ${userInfo.token}`,
             },
         });
         setImage(data);
