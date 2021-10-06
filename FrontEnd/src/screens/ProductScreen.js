@@ -60,7 +60,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
+          <Link to="/">Return</Link>
           <div className="row top">
             <div className="column-2">
               <img

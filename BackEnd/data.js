@@ -7,6 +7,14 @@ const data = {
             email:"admin@example.com",
             password:bcrypt.hashSync("1234",8),
             isAdmin: true,
+            isSeller:true,
+            seller: {
+                name: "Game Stock",
+                logo: "/images/Logos/logoSony",
+                description: "best seller",
+                rating: 5,
+                numReviews:180,
+            },
         },
         {
             name: "James",
@@ -14,6 +22,34 @@ const data = {
             password:bcrypt.hashSync("1234",8),
             isAdmin: false,
         },
+        {
+            name: "Nintendo",
+            email:"nintendo@example.com",
+            password:bcrypt.hashSync("1234",8),
+            isAdmin: false,
+            isSeller:true,
+            seller: {
+                name: "Nintendo",
+                logo: "/images/Logos/logoNintendo",
+                description: "Nintendo seller",
+                rating: 4.5,
+                numReviews:160,
+            },
+        },
+        {
+            name: "Microsoft",
+            email:"microsoft@example.com",
+            password:bcrypt.hashSync("1234",8),
+            isAdmin: false,
+            isSeller:true,
+            seller: {
+                name: "Game Stock",
+                logo: "/images/Logos/logoXbox",
+                description: "Microsoft seller",
+                rating: 4.5,
+                numReviews:120,
+            },
+        }
     ],
 
     products: [

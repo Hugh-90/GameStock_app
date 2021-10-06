@@ -51,15 +51,27 @@ productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
     //await Product.remove({});
-    const createdProducts = await Product.insertMany(data.products);
+    const seller = await User.findOne({isSeller: true});
+    if (seller) {
+      const products = data.products.map((product) => ({
+        ...product,
+        seller: seller._id,
+      }));
+    const createdProducts = await Product.insertMany(products);
     res.send({ createdProducts });
+  } else {
+    res.status(500).send({message: "No seller found. first run /api/users/seed"});
+  }
   })
 );
 
 productRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
-    const product = await Product.findById(req.params.id).populate("seller", "seller.name seller.logo seller.rating seller.numReviews");
+    const product = await Product.findById(req.params.id).populate(
+      "seller", 
+      "seller.name seller.logo seller.rating seller.numReviews"
+    );
     if (product) {
       res.send(product);
     } else {
