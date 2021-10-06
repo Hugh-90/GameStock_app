@@ -9,7 +9,14 @@ import Rating from '../components/Rating';
 import { prices, ratings } from '../utils';
 
 export default function SearchScreen(props) {
-  const { name = 'all' , category = "all", min=0, max=0, rating= 0, order= "newest",} = useParams();
+  const { 
+    name = 'all' , 
+    category = "all", 
+    min= 0, 
+    max= 0, 
+    rating= 0, 
+    order= "newest",
+  } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
@@ -17,12 +24,17 @@ export default function SearchScreen(props) {
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const { loading: loadingCategories, error: errorCategories, categories } = productCategoryList;
   useEffect(() => {
-    dispatch(listProducts({ name: name !== 'all' ? name : '',
-    category: category !== "all" ? category : "",
-    min, max, rating, order,
+    dispatch(
+      listProducts({ 
+        name: name !== 'all' ? name : '',
+        category: category !== "all" ? category : "",
+        min, 
+        max, 
+        rating, 
+        order,
     })
   );
-  }, [dispatch,category, min, max, name, order, rating]);
+  }, [category, dispatch, max, min, name, order, rating]);
 
 const getFilterUrl = (filter) => {
   const filterCategory = filter.category || category;
