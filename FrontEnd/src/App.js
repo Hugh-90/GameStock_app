@@ -52,15 +52,15 @@ function App() {
       <div className="grid-container">
         <header className="row">
           <div>
-            <button 
-            type="button" 
-            className="open-sidebar" 
-            onClick={() => setSidebarIsOpen(true)}
+            <button
+              type="button"
+              className="open-sidebar"
+              onClick={() => setSidebarIsOpen(true)}
             >
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              Game Stock
+              amazona
             </Link>
           </div>
           <div>
@@ -77,7 +77,6 @@ function App() {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-            <i className="fa fa-shopping-cart"></i>
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
@@ -95,18 +94,6 @@ function App() {
                       Sign Out
                     </Link>
                   </li>
-                  {loadingCategories ? (<LoadingBox></LoadingBox>
-                  ) : errorCategories ? (
-                    <MessageBox variant="danger">{errorCategories}</MessageBox>
-                  ): (
-                    categories.map((c) => (
-                      <li key={c}>
-                        <Link to={`/search/categoryy/${c}`}
-                        onClick={() => setSidebarIsOpen(false)}
-                        >{c}</Link>
-                      </li>
-                    ))
-                  )}
                 </ul>
               </div>
             ) : (
@@ -114,18 +101,18 @@ function App() {
             )}
             {userInfo && userInfo.isSeller && (
               <div className="dropdown">
-              <Link to="#Seller">
-                Seller <i className="fa fa-caret-down"></i>
-              </Link>
-              <ul className="dropdown-content">
-                <li>
-                  <Link to="/productlist/seller">Products</Link>
-                </li>
-                <li>
-                  <Link to="/orderlist/seller">Orders</Link>
-                </li>
-              </ul>
-            </div>
+                <Link to="#admin">
+                  Seller <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/productlist/seller">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
@@ -133,6 +120,9 @@ function App() {
                   Admin <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
                   <li>
                     <Link to="/productlist">Products</Link>
                   </li>
@@ -147,9 +137,9 @@ function App() {
             )}
           </div>
         </header>
-        <aside className={sidebarIsOpen? "open" : ""}>
+        <aside className={sidebarIsOpen ? 'open' : ''}>
           <ul className="categories">
-          <li>
+            <li>
               <strong>Categories</strong>
               <button
                 onClick={() => setSidebarIsOpen(false)}
@@ -181,7 +171,11 @@ function App() {
           <Route path="/seller/:id" component={SellerScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
-          <Route path="/product/:id/edit" component={ProductEditScreen} exact></Route>
+          <Route
+            path="/product/:id/edit"
+            component={ProductEditScreen}
+            exact
+          ></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
@@ -189,17 +183,54 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <Route path="//name/:name?" component={SearchScreen} exact></Route>
-          <Route path="/search/category/:category" component={SearchScreen} exact></Route>
-          <Route path="/search/category/:category/name/:name" component={SearchScreen} exact></Route>
-          <Route path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order" component={SearchScreen} exact></Route>
-          <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
-          <AdminRoute path="/productlist" component={ProductListScreen} exact></AdminRoute>
-          <AdminRoute path= "/orderlist" component={OrderListScreen} exact></AdminRoute>
-          <AdminRoute path = "/userList" component={UserListScreen}></AdminRoute>
-          <AdminRoute path="/user/:id/edit" component={UserEditScreen}></AdminRoute>
-          <SellerRoute path="/productlist/seller" component={ProductListScreen}></SellerRoute>
-          <SellerRoute path="/orderlist/seller" component={OrderListScreen}></SellerRoute>
+          <Route
+            path="/search/name/:name?"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
+            path="/search/category/:category"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
+            path="/search/category/:category/name/:name"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <Route
+            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order"
+            component={SearchScreen}
+            exact
+          ></Route>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
+          <AdminRoute
+            path="/productlist"
+            component={ProductListScreen}
+            exact
+          ></AdminRoute>
+          <AdminRoute
+            path="/orderlist"
+            component={OrderListScreen}
+            exact
+          ></AdminRoute>
+          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
+          <AdminRoute
+            path="/user/:id/edit"
+            component={UserEditScreen}
+          ></AdminRoute>
+          <SellerRoute
+            path="/productlist/seller"
+            component={ProductListScreen}
+          ></SellerRoute>
+          <SellerRoute
+            path="/orderlist/seller"
+            component={OrderListScreen}
+          ></SellerRoute>
+
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All rights reserved</footer>
@@ -207,5 +238,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
