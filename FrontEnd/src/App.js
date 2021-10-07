@@ -60,7 +60,7 @@ function App() {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              amazona
+              GameStock
             </Link>
           </div>
           <div>
